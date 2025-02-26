@@ -11,4 +11,6 @@ body{
     /* to fully center content box, move half its width and height up and left */
     transform: translate(-50%,-50%);
     text-align: center;
+    /* mobile support for iOS */
+    touch-action: none;
 }

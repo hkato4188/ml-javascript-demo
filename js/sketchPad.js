@@ -57,5 +57,18 @@ class SketchPad{
         this.canvas.onmouseup=()=>{
             this.isDrawing=false;   
         }
+
+        // mobile support for event listeners
+        this.canvas.ontouchstart=(e)=>{
+            const loc=e.touches[0];
+            this.canvas.onmousedown(loc);
+        }
+        this.canvas.ontouchmove=(e)=>{
+            const loc=e.touches[0];
+            this.canvas.onmousemove(loc);
+        }
+        this.canvas.ontouchend=()=>{
+            this.canvas.onmouseup();
+        }
     }
 }
