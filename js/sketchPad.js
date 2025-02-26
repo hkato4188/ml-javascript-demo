@@ -25,16 +25,17 @@ class SketchPad{
         ];
     }
 
-    // #redraw(){
-    //     this.ctx.clearRect(
-    //         0,
-    //         0,
-    //         this.canvas.width, 
-    //         this.canvas.heigth
-    //     );
-    //     this.isDrawing.path(this.ctx,this.path);
+    #redraw(){
+        this.ctx.clearRect(
+            0,
+            0,
+            this.canvas.width, 
+            this.canvas.heigth
+        );
+        // implement draw utility
+        draw.path(this.ctx,this.path);
         
-    // }
+    }
 
     #addEventListeners(){
         this.canvas.onmousedown=(e)=>{
@@ -48,7 +49,7 @@ class SketchPad{
                 const mouse = this.#getMouse(e);
                 this.path.push(mouse);
                 console.log(this.path.length)
-                // this.#redraw();
+                this.#redraw();
             }
         }
 
