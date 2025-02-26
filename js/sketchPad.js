@@ -10,7 +10,7 @@ class SketchPad{
         container.appendChild(this.canvas);
 
         this.ctx=this.canvas.getContext("2d");
-        this.path=[];
+        this.paths=[];
         this.isDrawing=false;
         
         // Private method
@@ -33,29 +33,29 @@ class SketchPad{
             this.canvas.heigth
         );
         // implement draw utility
-        draw.path(this.ctx,this.path);
+        draw.paths(this.ctx,this.paths);
         
     }
 
     #addEventListeners(){
         this.canvas.onmousedown=(e)=>{
             const mouse = this.#getMouse(e);
-            this.path=[mouse];
+            this.paths.push([mouse]);
             this.isDrawing=true;
         }
 
         this.canvas.onmousemove=(e)=>{
             if(this.isDrawing){
                 const mouse = this.#getMouse(e);
-                this.path.push(mouse);
-                console.log(this.path.length)
+                const lastPath=this.paths[this.paths.length-1];
+                lastPath.push(mouse);
+                console.log(this.paths.length)
                 this.#redraw();
             }
         }
 
         this.canvas.onmouseup=()=>{
-            this.isDrawing=false;
-            
+            this.isDrawing=false;   
         }
     }
 }
