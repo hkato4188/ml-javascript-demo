@@ -1,0 +1,14 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: lightgreen;
+}
+
+#content{
+    position: absolute;
+    /* places the content box's top left corner in the center */
+    top: 50%;
+    left: 50%;
+    /* to fully center content box, move half its width and height up and left */
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
