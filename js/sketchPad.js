@@ -16,12 +16,16 @@ class SketchPad{
         container.appendChild(this.undoBtn)
 
         this.ctx=this.canvas.getContext("2d");
-        
+        this.reset();
+
+        this.#addEventListeners();
+    }
+
+    reset(){
+        // taken from class constructor
         this.paths=[];
         this.isDrawing=false;
         this.#redraw();
-
-        this.#addEventListeners();
     }
 
     #addEventListeners(){
