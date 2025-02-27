@@ -84,6 +84,27 @@
             }
         }
 
+        function save(){
+            advanceBtn.style.display='none';
+            instructions.innerHTML="Download successful! Place your file alongside the other datasets.";
+            
+            const anchorElement = document.createElement('a');
+            
+            // The href attribute defines the content of the file to be downloaded.
+            // 'data:text/plain;charset=utf-8' (could also use application/json).
+            // JSON.stringify(data) converts the data JavaScript object into a JSON string (parse to reverse).
+            // encodeURI() ensures that the JSON data is properly encoded so it can be safely used in a URL.
+            // Result: Creates an in-memory "file" in the form of a data: URL, allowing the browser to generate a downloadable file without needing a server.
+            anchorElement.setAttribute('href', 'data:text/plain;charset=utf-8,'+encodeURI(JSON.stringify(data)))
+
+            const fileName=data.session+".json";
+            anchorElement.setAttribute('download', fileName);
+            anchorElement.style.display='none';
+            document.body.appendChild(anchorElement);
+            anchorElement.click();
+            document.body.removeChild(anchorElement);
+        }
+
     </script>
 </body>
 </html>
