@@ -14,3 +14,16 @@ body{
     /* mobile support for iOS */
     touch-action: none;
 }
+
+button{
+    cursor: pointer;
+    border: none;
+    border-radius:.25rem;
+}
+
+
+
+button:disabled{
+    background-color: red;
+    cursor:not-allowed;
+}
