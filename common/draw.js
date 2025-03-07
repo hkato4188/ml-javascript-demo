@@ -23,3 +23,10 @@ draw.path=(ctx,path,color="black")=>{
     
     ctx.stroke()
 }
+
+// browser does not understand module
+if(typeof module!=='undefined'){
+    module.exports=draw;
+}
+
+// must install canvas for npm
