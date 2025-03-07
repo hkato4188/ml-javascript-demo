@@ -1,5 +1,6 @@
 const draw=require('../common/draw.js');
 const constants=require('../common/constants.js');
+const utils=require('../common/utils.js');
 
 
 const {createCanvas} = require('canvas');
@@ -33,6 +34,9 @@ fileNames.forEach((fn)=>{
 
         //create this method
         generateImageFile(constants.IMG_DIR+"/"+id+".png", paths);
+
+        // 8 pictures per file
+        utils.printProgress(id,fileNames.length*8);
 
         id++;
     }
