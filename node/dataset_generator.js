@@ -45,6 +45,9 @@ fileNames.forEach((fn)=>{
 
 fs.writeFileSync(constants.SAMPLES, JSON.stringify(samples));
 
+// resuse method to declare const js object rather than json with string concatenation
+fs.writeFileSync(constants.SAMPLES_JS, "const samples="+JSON.stringify(samples)+";");
+
 function generateImageFile(outFile, paths){
     // draw() is out of scope--move to parent directory with exports
     // canvas is only browser supported must install for node

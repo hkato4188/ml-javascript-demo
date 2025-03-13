@@ -1,0 +1,7 @@
+Data Viewer
+
+1. Web application to display the data set
+2. Reuse writeFileSync method to write js object instead of json with concatenation (dataset_generator)
+3. Create html page for viewer
+4. Create groupBy functionality in utils
+    a) Nested array
