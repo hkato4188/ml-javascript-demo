@@ -17,9 +17,32 @@ const samples=[];
 
 let id=1;
 
+
+
 fileNames.forEach((fn)=>{
-    const content=fs.readFileSync(constants.RAW_DIR+"/"+fn)
-    const {session, student, drawings} = JSON.parse(content);
+    // .DS_Store macOS system file throws error
+    // const {session, student, drawings} = JSON.parse(content);
+    
+    if(!fn.endsWith(".json")){
+        console.warn(`Skipping non-JSON file: ${fn}`);
+        return;
+    }
+    
+    const content=fs.readFileSync(constants.RAW_DIR+"/"+fn);
+    let session, student, drawings;
+
+    try {
+        ({ session, student, drawings } = JSON.parse(content));
+    } catch (err) {
+        console.error(`Error parsing JSON in file: ${fn}`, err);
+        return;
+    }
+
+    
+    
+    
+    
+    
     for(let label in drawings){
         samples.push({
             id,
@@ -27,21 +50,16 @@ fileNames.forEach((fn)=>{
             student_name: student,
             student_id: session
         })
-
-
         const paths = drawings[label];
         fs.writeFileSync(constants.JSON_DIR+"/"+id+".json",JSON.stringify(paths))
-
-        //create this method
         generateImageFile(constants.IMG_DIR+"/"+id+".png", paths);
-
         // 8 pictures per file
         utils.printProgress(id,fileNames.length*8);
-
         id++;
-    }
+    }    
+})    
 
-})
+
 
 fs.writeFileSync(constants.SAMPLES, JSON.stringify(samples));
 

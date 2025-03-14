@@ -4,4 +4,6 @@ Data Viewer
 2. Reuse writeFileSync method to write js object instead of json with concatenation (dataset_generator)
 3. Create html page for viewer
 4. Create groupBy functionality in utils
-    a) Nested array
+5. Create script to display organized data from groupBy
+    a) touch display.js
+    

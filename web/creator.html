@@ -13,7 +13,7 @@
         <br>
         
         <div>
-            <input id="username" 
+            <input id="student" 
                 type="text" 
                 placeholder="type your name">
             
@@ -40,7 +40,7 @@
 
 
         const data={
-            username: null,
+            student: null,
             session: new Date().getTime(),
             drawings:{}
         }
@@ -49,12 +49,12 @@
         
 
         function start(){
-            if(username.value==""){
+            if(student.value==""){
                 alert("Please type your name first!");
                 return;
             }
-            data.username=username.value;
-            username.style.display="none";
+            data.student=student.value;
+            student.style.display="none";
             sketchPadContainer.style.visibility="visible";
 
             const label = labels[index];
