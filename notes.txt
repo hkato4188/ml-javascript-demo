@@ -7,3 +7,10 @@ Data Viewer
 5. Create script to display organized data from groupBy
     a) touch display.js
     
+
+Chart Component
+1. Create chart html file
+2. Create styles sheet for chart
+3. Create math helper functions 
+    a) Linear interpolation method
+    b)

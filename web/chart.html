@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Chart</title>
+    <link rel="stylesheet" href="chartstyles.css"/>
+</head>
+<body>
+    <h1>Custom Chart</h1>
+    <div class="chartContainer"></div>
+    <table class="dataTable"></table>
+    <script src="js/math.js"></script>
+
+    <script>
+        const N=1000;
+        const samples=[];
+        for(let i=1; i<=N; i++){
+            const type = Math.random()<0.5 ? "basic" : "sport";
+            const km = math.lerp(3000,300000,Math.random());
+            const price = math.lerp(9000,900,Math.random());
+
+            samples.push({
+                id: i,
+                label: type,
+                point: [km,price]
+            })
+        }
+
+        console.table(samples.map(s=>s.point));
+    </script>
+
+</body>
+</html>
